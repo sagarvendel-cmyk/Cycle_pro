@@ -1,0 +1,19 @@
+{
+  "name": "Light Process",
+  "short_name": "Light Process",
+  "description": "Industrial manufacturing operations management app",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fafafa",
+  "theme_color": "#1e3a5f",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
