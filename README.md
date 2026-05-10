@@ -12,11 +12,11 @@ A modern web application built with **Next.js 16**, **Tailwind CSS**, and **Supa
 
 ## Getting Started
 ```bash
-# Install dependencies (using pnpm, npm or yarn)
-pnpm install  # or npm install
+# Install dependencies (lockfile: package-lock.json)
+npm install
 
 # Run the development server
-pnpm dev    # or npm run dev
+npm run dev
 ```
 
 The app will be available at `http://localhost:3000`.
