@@ -17,7 +17,7 @@ export default function SignUpPage() {
   const [error, setError] = useState<string | null>(null)
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
-  
+
   // Form data
   const [email, setEmail] = useState('')
   const [employeeCode, setEmployeeCode] = useState('')
@@ -51,13 +51,13 @@ export default function SignUpPage() {
           data: {
             employee_code: employeeCode,
           },
-          emailRedirectTo: process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL ?? 
+          emailRedirectTo: process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL ??
             `${window.location.origin}/auth/callback`,
         },
       })
 
       if (error) throw error
-      setStep('confirm')
+      setStep('success')
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to sign up')
     } finally {
@@ -74,7 +74,7 @@ export default function SignUpPage() {
         type: 'signup',
         email,
         options: {
-          emailRedirectTo: process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL ?? 
+          emailRedirectTo: process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL ??
             `${window.location.origin}/auth/callback`,
         },
       })
@@ -108,14 +108,13 @@ export default function SignUpPage() {
 
       {/* Progress indicator */}
       <div className="flex gap-2 p-4">
-        {(['details', 'confirm', 'success'] as Step[]).map((s, i) => (
+        {(['details', 'success'] as Step[]).map((s, i) => (
           <div
             key={s}
-            className={`h-1 flex-1 rounded-full transition-colors ${
-              i <= ['details', 'confirm', 'success'].indexOf(step)
+            className={`h-1 flex-1 rounded-full transition-colors ${i <= ['details', 'confirm', 'success'].indexOf(step)
                 ? 'bg-primary'
                 : 'bg-muted'
-            }`}
+              }`}
           />
         ))}
       </div>
@@ -237,7 +236,7 @@ export default function SignUpPage() {
             </CardContent>
           </Card>
         )}
-
+        {/* 
         {step === 'confirm' && (
           <Card className="w-full">
             <CardHeader className="text-center">
@@ -285,7 +284,7 @@ export default function SignUpPage() {
               </p>
             </CardContent>
           </Card>
-        )}
+        )} */}
 
         {step === 'success' && (
           <Card className="w-full">
